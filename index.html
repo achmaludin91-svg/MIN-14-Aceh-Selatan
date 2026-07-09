@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIN Cendekia Islami - Madrasah Ibtidaiyah Negeri</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #0d5c3a; /* Hijau Islami Khas IMC */
+            --secondary-color: #e67e22; /* Oranye aksen hangat */
+            --light-color: #f4f9f4;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            background-color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Top Bar Info */
+        .top-bar {
+            background-color: #073b24;
+            color: white;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .top-info span {
+            margin-right: 20px;
+        }
+
+        .top-info i {
+            margin-right: 5px;
+            color: var(--secondary-color);
+        }
+
+        .top-social a {
+            color: white;
+            margin-left: 15px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .top-social a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Navbar */
+        header {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+        }
+
+        .logo-text h1 {
+            font-size: 20px;
+            color: var(--primary-color);
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: #666;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .btn-ppdb {
+            background-color: var(--secondary-color);
+            color: white !important;
+            padding: 8px 18px;
+            border-radius: 20px;
+        }
+
+        .btn-ppdb:hover {
+            background-color: #d35400;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(13, 92, 58, 0.85), rgba(7, 59, 36, 0.9)), url('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .hero-btn:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Stats Section */
+        .stats {
+            background-color: var(--light-color);
+            padding: 40px 5%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .stat-item i {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .stat-item h3 {
+            font-size: 32px;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            color: #666;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Section Global */
+        .section-padding {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Sambutan & Visi Misi */
+        .about-container {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 24px;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .visi-misi {
+            margin-top: 25px;
+            background-color: var(--light-color);
+            padding: 20px;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .visi-misi h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .about-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-img img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Unggulan / Program */
+        .programs {
+            background-color: #f9f9f9;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-icon {
+            font-size: 35px;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .card-body h3 {
+            margin-bottom: 12px;
+            color: var(--dark-color);
+            font-size: 20px;
+        }
+
+        /* Berita */
+        .news-card {
+            border-top: none;
+        }
+        
+        .news-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .news-date {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #073b24;
+            color: #e0e0e0;
+            padding: 60px 5% 20px 5%;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-links h3::after, .footer-contact h3::after {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            color: var(--secondary-color);
+            margin-top: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #0d5c3a;
+            font-size: 14px;
+            color: #a0aec0;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                padding: 20px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                gap: 15px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .about-container {
+                flex-direction: column;
+            }
+
+            .hero-content h2 {
+                font-size: 32px;
+            }
+            
+            .top-bar {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar Info -->
+    <div class="top-bar">
+        <div class="top-info">
+            <span><i class="fas fa-phone"></i> (021) 1234-5678</span>
+            <span><i class="fas fa-envelope"></i> info@mincendekia.sch.id</span>
+        </div>
+        <div class="top-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="navbar">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <i class="fas fa-mosque"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>MIN CENDEKIA</h1>
+                    <p>UNGGUL, ISLAMI, BERBUDI PEKERTI</p>
+                </div>
+            </div>
+            
+            <span class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></span>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="active">Beranda</a></li>
+                <li><a href="#">Profil</a></li>
+                <li><a href="#">Akademik</a></li>
+                <li><a href="#">Kesiswaan</a></li>
+                <li><a href="#">Berita</a></li>
+                <li><a href="#">Kontak</a></li>
+                <li><a href="#" class="btn-ppdb">PPDB Online</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Membentuk Generasi Qur'ani, Cerdas, dan Berakhlak Mulia</h2>
+            <p>Selamat Datang di Madrasah Ibtidaiyah Negeri Cendekia. Tempat terbaik menuntut ilmu umum dan agama demi masa depan yang berkah.</p>
+            <a href="#" class="hero-btn">Info Pendaftaran Siswa Baru (PPDB)</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stat-item">
+            <i class="fas fa-user-graduate"></i>
+            <h3>450+</h3>
+            <p>Siswa Aktif</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <h3>28</h3>
+            <p>Guru Profesional</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-school"></i>
+            <h3>18</h3>
+            <p>Ruang Kelas AC</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-award"></i>
+            <h3>A</h3>
+            <p>Akreditasi BAN-SM</p>
+        </div>
+    </section>
+
+    <!-- Profil / Sambutan Section -->
+    <section class="section-padding">
+        <div class="about-container">
+            <div class="about-text">
+                <div style="color: var(--secondary-color); font-weight: bold; margin-bottom: 5px;">KATA SAMBUTAN</div>
+                <h3>Sambutan Kepala Madrasah</h3>
+                <p><i>Assalamu’alaikum Warahmatullahi Wabarakatuh,</i></p>
+                <p>Segala puji bagi Allah SWT yang telah memberikan rahmat-Nya. Kami berkomitmen untuk menyelenggarakan pendidikan tingkat dasar madrasah yang mengintegrasikan kecerdasan intelektual, emosional, dan spiritual anak didik sejak dini.</p>
+                
+                <div class="visi-misi">
+                    <h4>Visi Madrasah:</h4>
+                    <p>"Terwujudnya insan yang bertakwa, berakhlak mulia, unggul dalam prestasi akademik, dan berwawasan lingkungan."</p>
+                </div>
+            </div>
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80" alt="Gedung Madrasah">
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Unggulan Section -->
+    <section class="section-padding programs">
+        <div class="section-title">
+            <h2>Program Unggulan Madrasah</h2>
+        </div>
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-icon"><i class="fas fa-book-open"></i></div>
+                    <h3>Tahfiz Al-Qur'an</h3>
+                    <p>Target hafalan minimal 2 Juz (Juz 30 & 29) bagi lulusan dengan metode murojaah yang intensif dan menyenangkan untuk anak.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-icon"><i class="fas fa-language"></i></div>
+                    <h3>Bilingual (Arab & Inggris)</h3>
+                    <p>Pembiasaan kosakata dasar harian bahasa Arab dan bahasa Inggris untuk membangun rasa percaya diri berkomunikasi internasional.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Kelas Digital dasar</h3>
+                    <p>Pengenalan teknologi komputer dasar sejak dini untuk mendukung literasi teknologi yang sehat dan kreatif bagi siswa dasar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Berita & Kegiatan Section -->
+    <section class="section-padding">
+        <div class="section-title">
+            <h2>Berita & Berita Kegiatan terbaru</h2>
+        </div>
+        <div class="grid-container">
+            <!-- Berita 1 -->
+            <div class="card news-card">
+                <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-body">
+                    <div class="news-date"><i class="far fa-calendar-alt"></i> 7 Juli 2026</div>
+                    <h3>MIN Cendekia Raih Juara 1 Lomba Pidato Bahasa Arab</h3>
+                    <p>Ananda Ahmad meraih medali emas tingkat kabupaten dalam ajang kompetisi sains dan seni madrasah...</p>
+                </div>
+            </div>
+            <!-- Berita 2 -->
+            <div class="card news-card">
+                <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-body">
+                    <div class="news-date"><i class="far fa-calendar-alt"></i> 5 Juli 2026</div>
+                    <h3>Pelaksanaan Rapat Kerja Tahunan Guru 2026/2027</h3>
+                    <p>Dalam rangka menyambut tahun ajaran baru, dewan guru mengadakan evaluasi kurikulum pembelajaran islami interaktif...</p>
+                </div>
+            </div>
+            <!-- Berita 3 -->
+            <div class="card news-card">
+                <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-body">
+                    <div class="news-date"><i class="far fa-calendar-alt"></i> 20 Juni 2026</div>
+                    <h3>Penerimaan Siswa Baru Gelombang 2 Dibuka</h3>
+                    <p>Kuota tersisa hanya untuk 2 kelas reguler. Segera daftarkan putra-putri Anda melalui portal PPDB daring...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>MIN Cendekia</h2>
+                <p>Lembaga pendidikan dasar Islam negeri terbaik yang mencetak generasi unggul, berbudaya, dan berwawasan teknologi masa depan.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Tautan Cepat</h3>
+                <ul>
+                    <li><a href="#">Sejarah Madrasah</a></li>
+                    <li><a href="#">Fasilitas Kampus</a></li>
+                    <li><a href="#">Kurikulum Agama</a></li>
+                    <li><a href="#">Pendaftaran PPDB</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Kontak Kami</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Pendidikan Islami No. 12, Sukabumi, Jawa Barat</p>
+                <p><i class="fas fa-phone"></i> (021) 1234-5678</p>
+                <p><i class="fas fa-clock"></i> Senin - Sabtu (07.15 - 14.30 WIB)</p>
+            </div>
+        </div>
+        <div class="copyright">
+            Copyright &copy; 2026 MIN Cendekia Islami. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- JavaScript Mobile Menu -->
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
